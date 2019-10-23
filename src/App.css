@@ -1,10 +1,22 @@
 .App {
   text-align: center;
 }
+@keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
 
 .App-logo {
   height: 40vmin;
+  animation-name: rotation;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
 }
+
 
 .App-header {
   background-color: #282c34;
