@@ -13,7 +13,7 @@
 .App-logo {
   height: 40vmin;
   animation-name: rotation;
-  animation-duration: 50s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
 }
 
