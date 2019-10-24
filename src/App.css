@@ -17,6 +17,13 @@
   animation-iteration-count: infinite;
 }
 
+.shadow {
+  position: absolute;
+  margin-top: -28px;
+  opacity: 0.3;
+  animation-duration: 20s;
+}
+
 
 .App-header {
   background-color: #282c34;
