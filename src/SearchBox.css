@@ -1,0 +1,38 @@
+@media screen and (max-width: 350px) {
+  /* styles for browsers smaller than 350px; */
+  .search-container::before {
+    visibility: hidden;
+  }
+}
+
+.searchbox {
+  margin-top: 20vh;
+  background: #1e232b;
+  background: #1e232b;
+  opacity: 0.9;
+  height: 5vh;
+  width: 50vw;
+  border-radius: 2vmin;
+  color: white;
+  margin-right: -6vmin;
+  font-family: sans-serif;
+  font-size:calc(12px + 1.5vmin);
+  padding-left: 2vw;
+  border-color: aquamarine;
+}
+.searchbox:focus{
+  outline-width: 0px;
+}
+
+.search-container::before {
+  content: ' ';
+  background-image: url('./searchicon.svg');
+  background-repeat: no-repeat;
+  background-size: 4vh 4vh;
+  margin-top: 21vh;
+  float:right;
+  position: absolute;
+  margin-left: 1vw;
+  height: 4vh;
+  width: 4vh;
+}

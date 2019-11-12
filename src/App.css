@@ -17,36 +17,60 @@
   }
 }
 
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 30% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: orange }
+  50% { border-color: transparent}
+}
+
+@keyframes fade-out {
+  from { border-color: orange }
+  to { border-color: transparent }
+}
+
+.welcome-text {
+  animation: typing 3.5s steps(30, end), blink-caret .75s step-end 3s, fade-out 5s;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid transparent; /* The typwriter cursor */
+}
 
 .App-logo {
   height: 25vmin;
   animation-name: rotation;
   animation-duration: 30s;
   animation-iteration-count: infinite;
+  position: absolute;
 }
 
 .shadow {
-  position: absolute;
-  margin-top: -4vh;
+  /* margin-top: -8vmin; */
+  animation-timing-function: linear;
   opacity: 0.3;
   animation-duration: 20s;
+  position: relative;
 }
 
 .half {
   height: 5vh;
-  margin-top: -5vh;
+  margin-top: -8vmin;
   animation-duration: 2s;
+  position: absolute;
   animation-timing-function: linear;
   opacity: 0;
 
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.background {
+  background-color: #282c34 !important;
+  height: 100vh;
+  text-align: center;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -55,4 +79,10 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.logo-container {
+  padding-top: 10vh;
+  position: absolute;
+
 }

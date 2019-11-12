@@ -1,0 +1,45 @@
+@media screen and (max-width: 650px) {
+  /* styles for browsers larger than 960px; */
+  .suggestionsList {
+    width: 500px;
+  }
+}
+
+.suggestionsList {
+  z-index: 2;
+  position: absolute;
+  height: content;
+  background: white;
+  border-radius: 12px;
+  color: black;
+  align-self: top;
+  display: inline-block;
+}
+
+.suggestion-input {
+  width: 100%;
+  height: 5vh;
+  font-size: calc(12px + 1.5vmin);
+}
+
+.suggestionItem {
+  margin: 4px;
+  border-bottom: solid 1px #dcdada;
+  text-align: left;
+  font-size: calc(4px + 2vmin);
+  padding-left: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  font-family: Lucinda Console, sans-serif;
+}
+
+.suggestionItem:hover{
+  background-color: #244841;
+  opacity: 0.2;
+  color: white;
+  cursor: pointer;
+}
+
+.suggestionItem a {
+  color: inherit;
+}

@@ -1,0 +1,10 @@
+.result-container {
+  height: 10vh;
+  width: 60vw;
+  border-radius: 8px;
+  background-color: white;
+  margin-top: 4vh;
+  position: absolute;
+  top: 70vh;
+  color: black;
+}
