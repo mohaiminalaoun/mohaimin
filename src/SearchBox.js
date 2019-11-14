@@ -1,5 +1,6 @@
 import React from 'react';
 import './SearchBox.css';
+import { connect } from 'react-redux';
 
 class SearchBox extends React.Component{
   constructor(props) {
@@ -34,4 +35,8 @@ class SearchBox extends React.Component{
   }
 }
 
-export default SearchBox;
+const mapStateToProps = state => ({
+  count: state.count
+})
+
+export default connect()(SearchBox);

@@ -1,7 +1,10 @@
 import React from 'react';
 import './SuggestionsList.css';
+import SuggestionsData from './data/suggestionsData';
+
 
 class SuggestionsList extends React.Component{
+
   constructor(props) {
     super(props);
   }
@@ -32,14 +35,20 @@ class SuggestionsList extends React.Component{
   }
 
   render() {
+    const query = this.props.inputValue && this.props.inputValue.toLowerCase();
+    let suggestionItemsData = SuggestionsData.suggestionItemsData;
+    let matchingSuggestions = suggestionItemsData.filter(item => {
+      let href = item.href,
+          text = item.text,
+          tags = item.tags;
+      return href.toLowerCase().indexOf(query)!==-1 || text.toLowerCase().indexOf(query)!== -1 || tags.toLowerCase().indexOf(query)!== -1;
+    });
+    let listItems = matchingSuggestions.map(item => {
+      return <ul onMouseDown={this.doAction} key={item.text}className="suggestionItem"> <a href={item.href}> {item.text} </a></ul>
+    });
     let listDiv = (<div className="suggestionsList" id="suggestionList">
-                      <ul onMouseDown={this.doAction} className="suggestionItem"> <a href="https://www.linkedin.com/in/mohaiminalaoun"> What is his experience? </a></ul>
-                      <ul onMouseDown={this.doAction} className="suggestionItem"> <a href="https://www.linkedin.com/in/mohaiminalaoun">Mohaimin's resume </a></ul>
-                      <ul onMouseDown={this.doAction} className="suggestionItem"> <a href="https://www.github.com/mohaiminalaoun">What are some of his projects?</a></ul>
-                      <ul onMouseDown={this.doAction} className="suggestionItem"> <a href="https://www.vanderbilt.edu">Where did he go to college</a></ul>
-                      <ul onMouseDown={this.doAction} className="suggestionItem"> <a href="mailto:mohaiminx@gmail.com">How to contact Mohaimin?</a></ul>
+                      {listItems}
                     </div>);
-      //console.log(this.props.shouldShowSuggestion);
       return this.props.shouldShowSuggestion ? listDiv : null;
   }
 }

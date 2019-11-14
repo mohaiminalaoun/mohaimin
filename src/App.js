@@ -2,6 +2,8 @@ import React from 'react';
 import SearchBox from './SearchBox';
 import SearchResult from './SearchResult';
 import SuggestionsList from './SuggestionsList';
+import { connect } from 'react-redux';
+import { Provider } from 'react-redux';
 import logo from './logo.svg';
 import half from './half.svg';
 import './App.css';
@@ -70,6 +72,7 @@ class App extends React.Component{
     //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />
 
     return (
+
         <div className="background">
 
               <SearchBox searchTriggerFn={this.triggerSearch}
@@ -82,10 +85,15 @@ class App extends React.Component{
                          inputValue={this.state.startingText}>
               </SuggestionsList>
               {imageDiv}
-              {this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}
+              {/*{this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}*/}
         </div>
+
       );
     }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  count: state.count
+})
+
+export default connect()(App); // export connected component
