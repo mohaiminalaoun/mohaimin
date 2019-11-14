@@ -23,20 +23,22 @@
 }
 
 .suggestionItem {
-  margin: 4px;
-  border-bottom: solid 1px #dcdada;
+  margin: 0px;
+ /* border-bottom: solid 1px #dcdada; */
+  background: #1e232b;
+  color: white;
   text-align: left;
   font-size: calc(4px + 2vmin);
   padding-left: 2vw;
   padding-top: 1vw;
   padding-bottom: 1vw;
-  font-family: Lucinda Console, sans-serif;
+  font-family: arial, sans-serif;
 }
 
 .suggestionItem:hover{
   background-color: #244841;
-  opacity: 0.2;
-  color: white;
+  opacity: 0.8;
+  color: black;
   cursor: pointer;
 }
 

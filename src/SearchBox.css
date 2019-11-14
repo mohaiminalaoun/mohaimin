@@ -8,7 +8,6 @@
 .searchbox {
   margin-top: 20vh;
   background: #1e232b;
-  background: #1e232b;
   opacity: 0.9;
   height: 5vh;
   width: 50vw;
@@ -24,6 +23,12 @@
   outline-width: 0px;
 }
 
+.searchbox.searching {
+  border: none;
+  border-radius: 0px;
+  border-top-right-radius: 2vmin;
+  border-top-left-radius: 2vmin;
+}
 .search-container::before {
   content: ' ';
   background-image: url('./searchicon.svg');

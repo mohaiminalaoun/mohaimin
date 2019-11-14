@@ -44,7 +44,7 @@ class SuggestionsList extends React.Component{
       return href.toLowerCase().indexOf(query)!==-1 || text.toLowerCase().indexOf(query)!== -1 || tags.toLowerCase().indexOf(query)!== -1;
     });
     let listItems = matchingSuggestions.map(item => {
-      return <ul onMouseDown={this.doAction} key={item.text}className="suggestionItem"> <a href={item.href}> {item.text} </a></ul>
+      return <ul onMouseDown={this.doAction} key={item.text} className="suggestionItem"> <a href={item.href}> {item.text} </a></ul>
     });
     let listDiv = (<div className="suggestionsList" id="suggestionList">
                       {listItems}

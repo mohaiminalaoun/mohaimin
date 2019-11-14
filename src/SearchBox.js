@@ -20,6 +20,7 @@ class SearchBox extends React.Component{
     this.props.hideSuggestionFn();
   }
   render() {
+      let tempClass = "searchbox "+ (this.props.shouldShowSuggestion ? "searching" : "");
       return (
         <div className="search-container">
           <input
@@ -29,7 +30,7 @@ class SearchBox extends React.Component{
           onBlur={this.onBlur}
           onKeyUp={this.onKeyUp}
           autoComplete="off"
-          className="searchbox"></input>
+          className= {tempClass}></input>
         </div>
       );
   }
