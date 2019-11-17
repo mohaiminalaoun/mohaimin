@@ -15,18 +15,28 @@ class App extends React.Component{
     this.state = {
       finalSearchQuery: null,
       shouldShowSuggestion: false,
-      startingText: ''
+      startingText: '',
+      selectedSugIndex: 0
     }
   }
 
 
   triggerSearch = (txt) => {
-    this.setState({finalSearchQuery: txt});
+    // temporary function to find items with class hover
+    const classList = document.getElementsByClassName('hover'),
+          selText = classList && classList[0] && classList[0].innerText;
+    if (selText) {
+      this.setState({finalSearchQuery: selText});
+      if (classList[0] && classList[0].children) {
+        window.open(classList[0].children[0].href, "_blank");
+      }
+    }
   }
-  showSuggestionFn = (startingText) => {
+  showSuggestionFn = (startingText, idx = 0) => {
     this.setState({
       shouldShowSuggestion: true,
-      startingText: startingText
+      startingText: startingText,
+      selectedSugIndex: idx
     });
   }
 
@@ -76,13 +86,17 @@ class App extends React.Component{
         <div className="background">
 
               <SearchBox searchTriggerFn={this.triggerSearch}
+                         finalSearchQuery={this.state.finalSearchQuery}
                          showSuggestionFn={this.showSuggestionFn}
                          hideSuggestionFn={this.hideSuggestionFn}
-                         shouldShowSuggestion={this.state.shouldShowSuggestion}>
+                         shouldShowSuggestion={this.state.shouldShowSuggestion}
+                         selectedSugIndex={this.state.selectedSugIndex}>
               </SearchBox>
               <SuggestionsList
                          shouldShowSuggestion={this.state.shouldShowSuggestion}
-                         inputValue={this.state.startingText}>
+                         inputValue={this.state.startingText}
+                         showSuggestionFn={this.showSuggestionFn}
+                         selectedSugIndex={this.state.selectedSugIndex}>
               </SuggestionsList>
               {imageDiv}
               {/*{this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}*/}
