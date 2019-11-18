@@ -5,6 +5,7 @@ import SuggestionsList from './SuggestionsList';
 import { connect } from 'react-redux';
 import { Provider } from 'react-redux';
 import logo from './logo.svg';
+import face from './face.svg'
 import half from './half.svg';
 import './App.css';
 
@@ -75,10 +76,15 @@ class App extends React.Component{
   }
 
   render = () => {
-    const imageDiv =  <div id="logo-container" className="logo-container">
-      <img src={logo} className="App-logo" alt="logo" />
-      <img src={logo} className="App-logo shadow" alt="logo" />
-      </div>;
+    const imageDiv = <div>
+      <div id="logo-container" className="logo-container">
+        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo shadow" alt="logo" />
+      </div>
+        <div>
+          <img src={face} className="face-avatar" alt="logo" />
+        </div>
+      </div>
     //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />
 
     return (

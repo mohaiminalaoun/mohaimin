@@ -7,7 +7,7 @@ const suggestionItemsData = [
   {
     href: "https://www.linkedin.com/in/mohaiminalaoun",
     text: "Mohaimin's resume",
-    tags: "resume cv curriculum vitae"
+    tags: "school experience resume cv curriculum vitae"
   },
   {
     href: "https://www.github.com/mohaiminalaoun",
@@ -17,10 +17,10 @@ const suggestionItemsData = [
   {
     href: "https://www.linkedin.com/in/mohaiminalaoun",
     text: "Where did he go to college?",
-    tags: "study education vanderbilt vanderbiltuniversity college computer science computerscience cs bachelor masters degree major minor graduate"
+    tags: "school study education vanderbilt vanderbiltuniversity computer science computerscience cs bachelor masters degree major minor graduate"
   },
   {
-    href: "mailto:mohaiminx@gmail.com",
+    href: "mailto:mohaimin.al.aoun@gmail.com",
     text: "How to contact Mohaimin?",
     tags: "email phone send message letter"
   },
@@ -32,7 +32,7 @@ const suggestionItemsData = [
   {
     href: "https://www.goodreads.com/user/show/82712266-moh",
     text: "What books does he like reading?",
-    tags: "books book read hobby hobbies time spare fiction nonfiction study paperback persue library"
+    tags: "books book read hobby hobbies time spare fiction nonfiction study paperback pursue library"
   }
 ];
 

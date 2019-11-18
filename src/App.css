@@ -84,5 +84,9 @@
 .logo-container {
   padding-top: 10vh;
   position: absolute;
+}
 
+.face-avatar {
+  height: 25vmin;
+  margin-top: 40vmin;
 }
