@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/mohaimin/static/css/main.4552e01e.chunk.css",
-    "main.js": "/mohaimin/static/js/main.91019706.chunk.js",
-    "main.js.map": "/mohaimin/static/js/main.91019706.chunk.js.map",
+    "main.js": "/mohaimin/static/js/main.2082a997.chunk.js",
+    "main.js.map": "/mohaimin/static/js/main.2082a997.chunk.js.map",
     "runtime-main.js": "/mohaimin/static/js/runtime-main.4fba60c8.js",
     "runtime-main.js.map": "/mohaimin/static/js/runtime-main.4fba60c8.js.map",
-    "static/js/2.574733f6.chunk.js": "/mohaimin/static/js/2.574733f6.chunk.js",
-    "static/js/2.574733f6.chunk.js.map": "/mohaimin/static/js/2.574733f6.chunk.js.map",
+    "static/js/2.e2de26dc.chunk.js": "/mohaimin/static/js/2.e2de26dc.chunk.js",
+    "static/js/2.e2de26dc.chunk.js.map": "/mohaimin/static/js/2.e2de26dc.chunk.js.map",
     "index.html": "/mohaimin/index.html",
-    "precache-manifest.f57c32d44763f6a8f8716b1cdfaf0d0d.js": "/mohaimin/precache-manifest.f57c32d44763f6a8f8716b1cdfaf0d0d.js",
+    "precache-manifest.2a80beb6c7c9a80a0ac5207569d78a7b.js": "/mohaimin/precache-manifest.2a80beb6c7c9a80a0ac5207569d78a7b.js",
     "service-worker.js": "/mohaimin/service-worker.js",
     "static/css/main.4552e01e.chunk.css.map": "/mohaimin/static/css/main.4552e01e.chunk.css.map",
     "static/media/face.svg": "/mohaimin/static/media/face.01df9ea9.svg",
@@ -18,8 +18,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.4fba60c8.js",
-    "static/js/2.574733f6.chunk.js",
+    "static/js/2.e2de26dc.chunk.js",
     "static/css/main.4552e01e.chunk.css",
-    "static/js/main.91019706.chunk.js"
+    "static/js/main.2082a997.chunk.js"
   ]
 }
