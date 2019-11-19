@@ -11,40 +11,36 @@ import './App.css';
 
 class App extends React.Component{
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      finalSearchQuery: null,
-      shouldShowSuggestion: false,
-      startingText: '',
-      selectedSugIndex: 0
-    }
-  }
-
-
   triggerSearch = (txt) => {
     // temporary function to find items with class hover
     const classList = document.getElementsByClassName('hover'),
           selText = classList && classList[0] && classList[0].innerText;
     if (selText) {
-      this.setState({finalSearchQuery: selText});
+      this.setState({
+        finalSearchQuery: selText
+      });
       if (classList[0] && classList[0].children) {
         window.open(classList[0].children[0].href, "_blank");
       }
     }
   }
   showSuggestionFn = (startingText, idx = 0) => {
-    this.setState({
-      shouldShowSuggestion: true,
-      startingText: startingText,
-      selectedSugIndex: idx
+    this.props.dispatch( {
+      type: 'showSuggestionFn',
+      payload: {
+          shouldShowSuggestion: true,
+          startingText: startingText,
+          selectedSugIndex: idx
+        }
     });
   }
 
   hideSuggestionFn = (startingText) => {
-    this.setState({
-      shouldShowSuggestion: false,
-      startingText: startingText
+    this.props.dispatch( {
+      type: 'hideSuggestionFn',
+      payload: {
+          shouldShowSuggestion: false
+        }
     });
   }
 
@@ -72,10 +68,13 @@ class App extends React.Component{
           selfWidth = 0.125 * clientWidth,
           paddingPx = 0.1 * clientHeight,
           hLWidth = 0.05 * clientWidth;
-    logoCont.style.left = (clientWidth/2 - (0.125*Math.min(clientWidth,clientHeight))) + "px";
+    if (logoCont) {
+      logoCont.style.left = (clientWidth/2 - (0.125*Math.min(clientWidth,clientHeight))) + "px";
+    }
   }
 
   render = () => {
+    console.log(this.props);
     const imageDiv = <div>
       <div id="logo-container" className="logo-container">
         <img src={logo} className="App-logo" alt="logo" />
@@ -92,19 +91,19 @@ class App extends React.Component{
         <div className="background">
 
               <SearchBox searchTriggerFn={this.triggerSearch}
-                         finalSearchQuery={this.state.finalSearchQuery}
+                         finalSearchQuery={this.props.finalSearchQuery}
                          showSuggestionFn={this.showSuggestionFn}
                          hideSuggestionFn={this.hideSuggestionFn}
-                         shouldShowSuggestion={this.state.shouldShowSuggestion}
-                         selectedSugIndex={this.state.selectedSugIndex}>
+                         shouldShowSuggestion={this.props.shouldShowSuggestion}
+                         selectedSugIndex={this.props.selectedSugIndex}>
               </SearchBox>
               <SuggestionsList
-                         shouldShowSuggestion={this.state.shouldShowSuggestion}
-                         inputValue={this.state.startingText}
+                         shouldShowSuggestion={this.props.shouldShowSuggestion}
+                         inputValue={this.props.startingText}
                          showSuggestionFn={this.showSuggestionFn}
-                         selectedSugIndex={this.state.selectedSugIndex}>
+                         selectedSugIndex={this.props.selectedSugIndex}>
               </SuggestionsList>
-              {imageDiv}
+             {imageDiv}
               {/*{this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}*/}
         </div>
 
@@ -113,7 +112,12 @@ class App extends React.Component{
 }
 
 const mapStateToProps = state => ({
-  count: state.count
-})
+    finalSearchQuery: state.finalSearchQuery,
+    shouldShowSuggestion: state.shouldShowSuggestion,
+    startingText: state.startingText,
+    selectedSugIndex: state.selectedSugIndex
+  });
 
-export default connect()(App); // export connected component
+
+
+export default connect(mapStateToProps)(App); // export connected component

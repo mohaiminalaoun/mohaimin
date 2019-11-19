@@ -2,9 +2,6 @@ import React from 'react';
 import './SearchResult.css';
 
 class SearchResult extends React.Component{
-  constructor(props) {
-    super(props);
-  }
   render() {
     let resultString = (this.props.content === 'Resume' || this.props.content === 'resume') ?
       "Here's Mohaimin's resume" : "Sorry your search returned no results."

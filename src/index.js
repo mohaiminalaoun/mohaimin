@@ -6,19 +6,38 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
+
+const initialState = {
+    finalSearchQuery: null,
+    shouldShowSuggestion: false,
+    startingText: '',
+    selectedSugIndex: 0
+};
+
 /* Should move this reducer to a different file*/
-const reducer = (state, actions) => {
-  console.log("reducer is called")
-  console.log(state);
-  console.log(actions);
-  return state;
+const reducer = (state = initialState, action) => {
+    if (action.type==='undefined') {
+      return state;
+    } else if (action.type==="showSuggestionFn") {
+
+      return Object.assign({}, initialState, {
+            shouldShowSuggestion: action.payload.shouldShowSuggestion,
+            startingText: action.payload.startingText,
+            selectedSugIndex: action.payload.selectedSugIndex
+          })
+    } else if (action.type==="hideSuggestionFn") {
+      return Object.assign({}, initialState, {
+            shouldShowSuggestion: action.payload.shouldShowSuggestion
+          })
+    }
+    return state;
 }
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer, /* preloadedState, */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-store.dispatch({
-  type: "INCREMENT"
-})
 
 ReactDOM.render(<Provider store={store}>
                   <App/>

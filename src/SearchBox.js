@@ -1,11 +1,7 @@
 import React from 'react';
 import './SearchBox.css';
-import { connect } from 'react-redux';
 
 class SearchBox extends React.Component{
-  constructor(props) {
-    super(props);
-  }
   onFocus = () => {
     // TODO: add style changess
   }
@@ -42,8 +38,5 @@ class SearchBox extends React.Component{
   }
 }
 
-const mapStateToProps = state => ({
-  count: state.count
-})
 
-export default connect()(SearchBox);
+export default SearchBox;
