@@ -1,27 +1,36 @@
 import React from 'react';
 import SearchBox from './SearchBox';
-import SearchResult from './SearchResult';
+// import SearchResult from './SearchResult';
 import SuggestionsList from './SuggestionsList';
 import { connect } from 'react-redux';
-import { Provider } from 'react-redux';
 import logo from './logo.svg';
 import face from './face.svg'
-import half from './half.svg';
+//import half from './half.svg';
 import './App.css';
 
 class App extends React.Component{
 
-  triggerSearch = (txt) => {
+  triggerSearch = (txt, finalSearchQuery, isEnterPressed) => {
     // temporary function to find items with class hover
     const classList = document.getElementsByClassName('hover'),
           selText = classList && classList[0] && classList[0].innerText;
     if (selText) {
-      this.setState({
-        finalSearchQuery: selText
+      this.props.dispatch( {
+        type: 'addSearchQuery',
+        payload: {
+            finalSearchQuery: selText
+          }
       });
       if (classList[0] && classList[0].children) {
         window.open(classList[0].children[0].href, "_blank");
       }
+    } else if (isEnterPressed) {
+      this.props.dispatch( {
+        type: 'addSearchQuery',
+        payload: {
+            finalSearchQuery: txt
+          }
+      });
     }
   }
   showSuggestionFn = (startingText, idx = 0) => {
@@ -74,7 +83,6 @@ class App extends React.Component{
   }
 
   render = () => {
-    console.log(this.props);
     const imageDiv = <div>
       <div id="logo-container" className="logo-container">
         <img src={logo} className="App-logo" alt="logo" />
@@ -101,6 +109,7 @@ class App extends React.Component{
                          shouldShowSuggestion={this.props.shouldShowSuggestion}
                          inputValue={this.props.startingText}
                          showSuggestionFn={this.showSuggestionFn}
+                         searchHistory={this.props.searchHistory}
                          selectedSugIndex={this.props.selectedSugIndex}>
               </SuggestionsList>
              {imageDiv}
@@ -115,7 +124,8 @@ const mapStateToProps = state => ({
     finalSearchQuery: state.finalSearchQuery,
     shouldShowSuggestion: state.shouldShowSuggestion,
     startingText: state.startingText,
-    selectedSugIndex: state.selectedSugIndex
+    selectedSugIndex: state.selectedSugIndex,
+    searchHistory: state.searchHistory
   });
 
 

@@ -49,6 +49,9 @@ class SuggestionsList extends React.Component{
     let numMatches = matchingSuggestions.length;
     let curSelIdx = (Math.abs(this.props.selectedSugIndex) % numMatches);
     let count = 0;
+    let searchHistory = this.props.searchHistory.map( (item) => {
+      return <ul id={item} key={(Math.floor(1000 + Math.random() * 9000))+(item)}className="suggestionItem history">{item}</ul>
+    });
     let listItems = matchingSuggestions.map(item => {
       count++;
       return <ul onMouseDown={this.doAction} id={(count-1)+"sugItem"}key={item.text} onMouseOver={this.hoverOnItem}
@@ -58,6 +61,7 @@ class SuggestionsList extends React.Component{
     });
     let listDiv = (<div className="suggestionsList" id="suggestionList">
                       {listItems}
+                      {searchHistory}
                     </div>);
       return this.props.shouldShowSuggestion ? listDiv : null;
   }

@@ -49,6 +49,16 @@
   cursor: pointer;
 }
 
+.history {
+  color: #7b808a;
+}
+.history:hover{
+  background-color: #1e232b;
+  opacity: 1;
+  color: #7b808a;
+  cursor: not-allowed;
+}
+
 .suggestionItem a {
   color: inherit;
   text-decoration: none;

@@ -9,7 +9,7 @@ class SearchBox extends React.Component{
     const val = evt.target.value
     if (evt.key === 'Enter') {
       // call the search function defined in App component
-      this.props.searchTriggerFn(val, this.props.finalSearchQuery);
+      this.props.searchTriggerFn(val, this.props.finalSearchQuery, true);
     } else if (evt.key === 'ArrowDown') {
       this.props.showSuggestionFn(val, this.props.selectedSugIndex+1);
     } else if (evt.key === 'ArrowUp') {
