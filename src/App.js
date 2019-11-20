@@ -68,15 +68,8 @@ class App extends React.Component{
 
   updateDimensions = () => {
     const logoCont = document.getElementById("logo-container"),
-          inputDiv = document.getElementById("searchbox"),
-          halfLogo = document.getElementById("half-logo"),
-          inputLeft = inputDiv.offsetLeft,
-          inputWidth = inputDiv.offsetWidth,
           clientWidth = document.documentElement.clientWidth,
-          clientHeight = document.documentElement.clientHeight,
-          selfWidth = 0.125 * clientWidth,
-          paddingPx = 0.1 * clientHeight,
-          hLWidth = 0.05 * clientWidth;
+          clientHeight = document.documentElement.clientHeight;
     if (logoCont) {
       logoCont.style.left = (clientWidth/2 - (0.125*Math.min(clientWidth,clientHeight))) + "px";
     }

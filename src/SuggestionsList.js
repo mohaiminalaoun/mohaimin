@@ -2,23 +2,44 @@ import React from 'react';
 import './SuggestionsList.css';
 import SuggestionsData from './data/suggestionsData';
 
+/*
+Function to get suggestion list dropdown items div
+*/
+function getListItems() {
+  let props = this.props,
+      inputValue = props.inputValue;
+  const query = inputValue && inputValue.toLowerCase();
+  let suggestionItemsData = SuggestionsData.suggestionItemsData;
+  let matchingSuggestions = suggestionItemsData.filter(item => {
+    let href = item.href,
+        text = item.text,
+        tags = item.tags;
+    return href.toLowerCase().indexOf(query)!==-1 || text.toLowerCase().indexOf(query)!== -1 || tags.toLowerCase().indexOf(query)!== -1;
+  });
+  let numMatches = matchingSuggestions.length;
+  let curSelIdx = (Math.abs(props.selectedSugIndex) % numMatches);
+  let count = 0;
+  let listItems = matchingSuggestions.map(item => {
+    count++;
+    return <ul onMouseDown={this.doAction} id={(count-1)+"sugItem"}key={item.text} onMouseOver={this.hoverOnItem}
+                className={"suggestionItem "+(curSelIdx === count-1 ? "hover" : '')}>
+              <a href={item.href}> {item.text} </a>
+            </ul>
+  });
+  return listItems;
+}
+
 
 class SuggestionsList extends React.Component{
-
-  constructor(props) {
-    super(props);
-  }
 
   changeFn(evt) {
     var input = document.getElementById("suggestionListInput");
     if (input) {
-      input.blur()
+      input.blur();
     }
   }
-
-
+/*Function to change the position of the suggestionList when the dimension of the document changes*/
   componentDidUpdate() {
-
     const input = document.getElementById("searchbox"),
           sugList = document.getElementById("suggestionList");
     if (input && sugList) {
@@ -38,28 +59,10 @@ class SuggestionsList extends React.Component{
   }
 
   render() {
-    const query = this.props.inputValue && this.props.inputValue.toLowerCase();
-    let suggestionItemsData = SuggestionsData.suggestionItemsData;
-    let matchingSuggestions = suggestionItemsData.filter(item => {
-      let href = item.href,
-          text = item.text,
-          tags = item.tags;
-      return href.toLowerCase().indexOf(query)!==-1 || text.toLowerCase().indexOf(query)!== -1 || tags.toLowerCase().indexOf(query)!== -1;
-    });
-    let numMatches = matchingSuggestions.length;
-    let curSelIdx = (Math.abs(this.props.selectedSugIndex) % numMatches);
-    let count = 0;
-    let searchHistory = this.props.searchHistory.map( (item) => {
-      return <ul id={item} key={(Math.floor(1000 + Math.random() * 9000))+(item)}className="suggestionItem history">{item}</ul>
-    });
-    let listItems = matchingSuggestions.map(item => {
-      count++;
-      return <ul onMouseDown={this.doAction} id={(count-1)+"sugItem"}key={item.text} onMouseOver={this.hoverOnItem}
-                  className={"suggestionItem "+(curSelIdx === count-1 ? "hover" : '')}>
-                <a href={item.href}> {item.text} </a>
-              </ul>
-    });
-    let listDiv = (<div className="suggestionsList" id="suggestionList">
+    let searchHistory = this.props.searchHistory.map( (item) =>
+              <ul id={item} key={(Math.floor(1000 + Math.random() * 9000))+(item)}className="suggestionItem history">{item}</ul>),
+        listItems = getListItems.call(this),
+        listDiv = (<div className="suggestionsList" id="suggestionList">
                       {listItems}
                       {searchHistory}
                     </div>);

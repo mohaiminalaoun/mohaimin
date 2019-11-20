@@ -2,7 +2,7 @@
   "name": "mohaimin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mohaiminalaoun.github.io/mohaimin/",
+  "homepage": "https://www.mohaiminalaoun.com",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.11.0",
