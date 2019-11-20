@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7a69a91cbe253aaa1a6a64380c3937ac",
+    "revision": "b9d0797d79f03052e9d5a1c8143a9c67",
     "url": "/mohaimin/index.html"
   },
   {
-    "revision": "595d3326404fc0d2913f",
-    "url": "/mohaimin/static/css/main.4552e01e.chunk.css"
+    "revision": "c819ceb6acf829e0d8ad",
+    "url": "/mohaimin/static/css/main.473edddc.chunk.css"
   },
   {
-    "revision": "f3b374fc633f9000bbd7",
-    "url": "/mohaimin/static/js/2.e2de26dc.chunk.js"
+    "revision": "c45a0a184c9dfaae9a85",
+    "url": "/mohaimin/static/js/2.6d7d4547.chunk.js"
   },
   {
-    "revision": "595d3326404fc0d2913f",
-    "url": "/mohaimin/static/js/main.2082a997.chunk.js"
+    "revision": "c819ceb6acf829e0d8ad",
+    "url": "/mohaimin/static/js/main.0c719bf1.chunk.js"
   },
   {
     "revision": "91f0c1457e5e78d9c7ae",
@@ -22,10 +22,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "01df9ea9e01d5aed00d35d7203e4d285",
     "url": "/mohaimin/static/media/face.01df9ea9.svg"
-  },
-  {
-    "revision": "d09969cb9c76f7f259db4ed01f39fb2d",
-    "url": "/mohaimin/static/media/half.d09969cb.svg"
   },
   {
     "revision": "01003c503370f033213ae4b7fd5ef6fb",
