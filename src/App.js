@@ -4,11 +4,19 @@ import SearchBox from './SearchBox';
 import SuggestionsList from './SuggestionsList';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
-import face from './face.svg'
+import face from './face.svg';
+import faceLight from './faceLight.svg'
 //import half from './half.svg';
 import './App.css';
 
 class App extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      typing: false
+    }
+  }
 
   triggerSearch = (txt, finalSearchQuery, isEnterPressed) => {
     // temporary function to find items with class hover
@@ -34,6 +42,16 @@ class App extends React.Component{
     }
   }
   showSuggestionFn = (startingText, idx = 0) => {
+    this.setState( {
+      typing: true
+    });
+    if (this.state.typing) {
+      setTimeout(() => {
+        this.setState({
+          typing : false
+        })
+      }, 200);
+    }
     this.props.dispatch( {
       type: 'showSuggestionFn',
       payload: {
@@ -82,7 +100,7 @@ class App extends React.Component{
         <img src={logo} className="App-logo shadow" alt="logo" />
       </div>
         <div>
-          <img src={face} className="face-avatar" alt="logo" />
+          <img src={this.state.typing ? faceLight: face} className="face-avatar" alt="logo" />
         </div>
       </div>
     //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />

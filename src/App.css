@@ -10,8 +10,14 @@
 		}
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (max-width: 650px) {
   /* styles for browsers larger than 960px; */
+  .face-avatar {
+    margin-top: 40vmax !important; /* for mobile screens*/
+  }
+}
+
+@media screen and (min-width: 650px) {
   .half {
     opacity: 0.5 !important;
   }
