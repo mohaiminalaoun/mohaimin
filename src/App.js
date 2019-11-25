@@ -4,8 +4,8 @@ import SearchBox from './SearchBox';
 import SuggestionsList from './SuggestionsList';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
-import face from './face.svg';
-import faceLight from './faceLight.svg'
+import face from './manwithpc2.svg';
+import faceLight from './manwithpc2.svg' // TODO: change this logo
 //import half from './half.svg';
 import './App.css';
 
