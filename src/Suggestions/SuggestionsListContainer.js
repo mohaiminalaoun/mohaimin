@@ -1,6 +1,7 @@
 import React from 'react';
 import './SuggestionsList.css';
-import SuggestionsData from './data/suggestionsData';
+import SuggestionsData from '../data/suggestionsData';
+import SuggestionsList from './SuggestionsList';
 
 /*
 Function to get suggestion list dropdown items div
@@ -30,7 +31,7 @@ function getListItems() {
 }
 
 
-class SuggestionsList extends React.Component{
+class SuggestionsListContainer extends React.Component{
 
   changeFn(evt) {
     var input = document.getElementById("suggestionListInput");
@@ -61,13 +62,9 @@ class SuggestionsList extends React.Component{
   render() {
     let searchHistory = this.props.searchHistory.map( (item) =>
               <ul id={item} key={(Math.floor(1000 + Math.random() * 9000))+(item)}className="suggestionItem history">{item}</ul>),
-        listItems = getListItems.call(this),
-        listDiv = (<div className="suggestionsList" id="suggestionList">
-                      {listItems}
-                      {searchHistory}
-                    </div>);
-      return this.props.shouldShowSuggestion ? listDiv : null;
+        listItems = getListItems.call(this);
+      return <SuggestionsList searchHistory={searchHistory} listItems={listItems} shouldShowSuggestion={this.props.shouldShowSuggestion}></SuggestionsList>;
   }
 }
 
-export default SuggestionsList;
+export default SuggestionsListContainer;

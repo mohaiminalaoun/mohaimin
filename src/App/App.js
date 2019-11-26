@@ -1,7 +1,7 @@
 import React from 'react';
-import SearchBox from './SearchBox';
 // import SearchResult from './SearchResult';
-import SuggestionsList from './SuggestionsList';
+import SuggestionsListContainer from '../Suggestions/SuggestionsListContainer';
+import SearchBoxContainer from '../SearchBox/SearchBoxContainer';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import face from './manwithpc2.svg';
@@ -109,20 +109,20 @@ class App extends React.Component{
 
         <div className="background">
 
-              <SearchBox searchTriggerFn={this.triggerSearch}
+              <SearchBoxContainer searchTriggerFn={this.triggerSearch}
                          finalSearchQuery={this.props.finalSearchQuery}
                          showSuggestionFn={this.showSuggestionFn}
                          hideSuggestionFn={this.hideSuggestionFn}
                          shouldShowSuggestion={this.props.shouldShowSuggestion}
                          selectedSugIndex={this.props.selectedSugIndex}>
-              </SearchBox>
-              <SuggestionsList
+              </SearchBoxContainer>
+              <SuggestionsListContainer
                          shouldShowSuggestion={this.props.shouldShowSuggestion}
                          inputValue={this.props.startingText}
                          showSuggestionFn={this.showSuggestionFn}
                          searchHistory={this.props.searchHistory}
                          selectedSugIndex={this.props.selectedSugIndex}>
-              </SuggestionsList>
+              </SuggestionsListContainer>
              {imageDiv}
               {/*{this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}*/}
         </div>

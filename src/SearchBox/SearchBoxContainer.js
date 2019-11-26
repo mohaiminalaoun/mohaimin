@@ -1,11 +1,13 @@
 import React from 'react';
+import SearchBox from './SearchBox';
 import './SearchBox.css';
 
-class SearchBox extends React.Component{
+class SearchBoxContainer extends React.Component{
   onFocus = () => {
     // TODO: add style changess
   }
   onKeyUp = (evt) => {
+    console.log("on key up called");
     const val = evt.target.value
     if (evt.key === 'Enter') {
       // call the search function defined in App component
@@ -23,20 +25,9 @@ class SearchBox extends React.Component{
   }
   render() {
       let tempClass = "searchbox "+ (this.props.shouldShowSuggestion ? "searching" : "");
-      return (
-        <div className="search-container">
-          <input
-          id="searchbox"
-          value={this.input}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          onKeyUp={this.onKeyUp}
-          autoComplete="off"
-          className= {tempClass}></input>
-        </div>
-      );
+      return <SearchBox onFocus={this.onFocus} onBlur={this.onBlur} onKeyUp={this.onKeyUp} tempClass={tempClass} ></SearchBox>;
   }
 }
 
 
-export default SearchBox;
+export default SearchBoxContainer;
