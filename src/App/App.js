@@ -23,22 +23,12 @@ class App extends React.Component{
     const classList = document.getElementsByClassName('hover'),
           selText = classList && classList[0] && classList[0].innerText;
     if (selText) {
-      this.props.dispatch( {
-        type: 'addSearchQuery',
-        payload: {
-            finalSearchQuery: selText
-          }
-      });
+      this.props.dispatchaddSearchQuery(selText);
       if (classList[0] && classList[0].children) {
         window.open(classList[0].children[0].href, "_blank");
       }
     } else if (isEnterPressed) {
-      this.props.dispatch( {
-        type: 'addSearchQuery',
-        payload: {
-            finalSearchQuery: txt
-          }
-      });
+      this.props.dispatchaddSearchQuery(txt);
     }
   }
   showSuggestionFn = (startingText, idx = 0) => {
@@ -52,23 +42,11 @@ class App extends React.Component{
         })
       }, 200);
     }
-    this.props.dispatch( {
-      type: 'showSuggestionFn',
-      payload: {
-          shouldShowSuggestion: true,
-          startingText: startingText,
-          selectedSugIndex: idx
-        }
-    });
+    this.props.dispatchShowSuggestion(startingText, idx);
   }
 
   hideSuggestionFn = (startingText) => {
-    this.props.dispatch( {
-      type: 'hideSuggestionFn',
-      payload: {
-          shouldShowSuggestion: false
-        }
-    });
+    this.props.dispatchHideSuggestion();
   }
 
   componentDidMount() {
@@ -139,6 +117,35 @@ const mapStateToProps = state => ({
     searchHistory: state.searchHistory
   });
 
+const mapDispatchToProps = (dispatch) => ({
+  dispatchaddSearchQuery: (txt) => {
+    dispatch({
+      type: 'addSearchQuery',
+      payload: {
+          finalSearchQuery: txt
+        }
+    });
+  },
+  dispatchShowSuggestion: (startingText, idx) => {
+    dispatch({
+      type: 'showSuggestionFn',
+      payload: {
+          shouldShowSuggestion: true,
+          startingText: startingText,
+          selectedSugIndex: idx
+        }
+    });
+  },
+  dispatchHideSuggestion: () => {
+    dispatch( {
+      type: 'hideSuggestionFn',
+      payload: {
+          shouldShowSuggestion: false
+        }
+    });
+  }
+});
 
 
-export default connect(mapStateToProps)(App); // export connected component
+
+export default connect(mapStateToProps, mapDispatchToProps)(App); // export connected component
