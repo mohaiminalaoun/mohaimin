@@ -7,7 +7,6 @@ class SearchBoxContainer extends React.Component{
     // TODO: add style changess
   }
   onKeyUp = (evt) => {
-    console.log("on key up called");
     const val = evt.target.value
     if (evt.key === 'Enter') {
       // call the search function defined in App component

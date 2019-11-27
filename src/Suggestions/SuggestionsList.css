@@ -6,7 +6,7 @@
 }
 
 .suggestionsList {
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   height: content;
   background: white;

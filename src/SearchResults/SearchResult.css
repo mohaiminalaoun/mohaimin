@@ -1,10 +1,39 @@
 .result-container {
-  height: 10vh;
-  width: 60vw;
-  border-radius: 8px;
-  background-color: white;
-  margin-top: 4vh;
-  position: absolute;
-  top: 70vh;
+  padding: 10px;
+  display: inline-block;
+  width: 200px;
+  border: 5px black;
+  background: white;
+  height: 30px;
   color: black;
+  margin-bottom: 5px;
+  margin: 10px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.search-results-container {
+  z-index: 2;
+  height: 0px;
+}
+
+.result-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  font-family: 'Roboto',arial,sans-serif;
+}
+
+.result-desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-family: 'Roboto',arial,sans-serif;
+  color: #505050;
+}
+
+.result-desc a{
+  text-decoration: none;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 // import SearchResult from './SearchResult';
 import SuggestionsListContainer from '../Suggestions/SuggestionsListContainer';
 import SearchBoxContainer from '../SearchBox/SearchBoxContainer';
+import SearchResultsContainer from '../SearchResults/SearchResultsContainer';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import face from './manwithpc2.svg';
@@ -25,7 +26,7 @@ class App extends React.Component{
     if (selText) {
       this.props.dispatchaddSearchQuery(selText);
       if (classList[0] && classList[0].children) {
-        window.open(classList[0].children[0].href, "_blank");
+        //window.open(classList[0].children[0].href, "_blank");
       }
     } else if (isEnterPressed) {
       this.props.dispatchaddSearchQuery(txt);
@@ -82,7 +83,6 @@ class App extends React.Component{
         </div>
       </div>
     //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />
-
     return (
 
         <div className="background">
@@ -101,8 +101,9 @@ class App extends React.Component{
                          searchHistory={this.props.searchHistory}
                          selectedSugIndex={this.props.selectedSugIndex}>
               </SuggestionsListContainer>
+              <SearchResultsContainer searchHistory={this.props.searchHistory}></SearchResultsContainer>
              {imageDiv}
-              {/*{this.state.finalSearchQuery ? <SearchResult content={this.state.finalSearchQuery}> </SearchResult> : null}*/}
+
         </div>
 
       );
