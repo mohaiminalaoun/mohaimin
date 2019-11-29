@@ -50,10 +50,10 @@ class SuggestionsListContainer extends React.Component{
     }
   }
 
-  doAction(evt) {
+  doAction = (evt) => {
     let str = evt.currentTarget.innerHTML,
-        url = str.split('href="')[1].split('">')[0];
-      //  window.open(url, "_blank");
+        searchQuery = str.split('>')[1].split('<')[0];
+    this.props.searchTriggerFn(searchQuery);
   }
   hoverOnItem = (evt) => {
     this.props.showSuggestionFn(this.props.inputValue, parseInt(evt.currentTarget.id, 10));

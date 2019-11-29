@@ -5,11 +5,15 @@ import './SearchResult.css';
 
 
 const SearchResultsContainer = (props) => {
-
-    const query = props.searchHistory && props.searchHistory[0];
-
-
-    const matchingItems = SuggestionsData.suggestionItemsData.filter((data) => {
+    const query = (props.currentSearch && props.currentSearch.toLowerCase()) || (props.searchHistory && props.searchHistory[0]);
+    // if exact match, we skip partial matches
+    const exactMatch = SuggestionsData.suggestionItemsData.filter((data) => {
+      if (query && data.text.toLowerCase() === query.trim()) {
+        return true;
+      }
+      return false;
+    });
+    const matchingItems = exactMatch.length === 1 ? exactMatch : SuggestionsData.suggestionItemsData.filter((data) => {
       const arr = query && query.split && query.split(' ');
       if (Array.isArray(arr)) {
         for (let i = 0; i < arr.length; i++) {
@@ -29,7 +33,7 @@ const SearchResultsContainer = (props) => {
     });
 
     return (
-        <div className="search-results-container">{results}</div>
+        <div className="search-results-container">{(props.shouldShowSuggestion) ? null : results}</div>
     );
   }
 

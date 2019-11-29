@@ -23,13 +23,16 @@ class App extends React.Component{
     // temporary function to find items with class hover
     const classList = document.getElementsByClassName('hover'),
           selText = classList && classList[0] && classList[0].innerText;
-    if (selText) {
+    if (selText) { // means a hovered suggested item was clicked
       this.props.dispatchaddSearchQuery(selText);
       if (classList[0] && classList[0].children) {
         //window.open(classList[0].children[0].href, "_blank");
       }
+      this.props.dispatchCurrentSearch(selText);
     } else if (isEnterPressed) {
+      // means a hovered search item was not clicked, so search for the actial text input
       this.props.dispatchaddSearchQuery(txt);
+      this.props.dispatchCurrentSearch(txt);
     }
   }
   showSuggestionFn = (startingText, idx = 0) => {
@@ -96,12 +99,17 @@ class App extends React.Component{
               </SearchBoxContainer>
               <SuggestionsListContainer
                          shouldShowSuggestion={this.props.shouldShowSuggestion}
+                         searchTriggerFn={this.triggerSearch}
                          inputValue={this.props.startingText}
                          showSuggestionFn={this.showSuggestionFn}
                          searchHistory={this.props.searchHistory}
                          selectedSugIndex={this.props.selectedSugIndex}>
               </SuggestionsListContainer>
-              <SearchResultsContainer searchHistory={this.props.searchHistory}></SearchResultsContainer>
+              <SearchResultsContainer
+                        shouldShowSuggestion={this.props.shouldShowSuggestion}
+                        searchHistory={this.props.searchHistory}
+                        currentSearch={this.props.currentSearch}>
+              </SearchResultsContainer>
              {imageDiv}
 
         </div>
@@ -115,7 +123,8 @@ const mapStateToProps = state => ({
     shouldShowSuggestion: state.shouldShowSuggestion,
     startingText: state.startingText,
     selectedSugIndex: state.selectedSugIndex,
-    searchHistory: state.searchHistory
+    searchHistory: state.searchHistory,
+    currentSearch: state.currentSearch
   });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -143,6 +152,12 @@ const mapDispatchToProps = (dispatch) => ({
       payload: {
           shouldShowSuggestion: false
         }
+    });
+  },
+  dispatchCurrentSearch: (txt) => {
+    dispatch({
+      type: "updateCurrentSearch",
+      payload: txt
     });
   }
 });
