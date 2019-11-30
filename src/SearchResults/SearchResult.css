@@ -15,6 +15,8 @@
 .search-results-container {
   z-index: 2;
   height: 0px;
+  position: absolute;
+  width: 100vw;
 }
 
 .result-text {
