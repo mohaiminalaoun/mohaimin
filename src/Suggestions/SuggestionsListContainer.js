@@ -18,7 +18,7 @@ function getListItems() {
     return href.toLowerCase().indexOf(query)!==-1 || text.toLowerCase().indexOf(query)!== -1 || tags.toLowerCase().indexOf(query)!== -1;
   });
   let numMatches = matchingSuggestions.length;
-  let curSelIdx = (Math.abs(props.selectedSugIndex) % numMatches);
+  let curSelIdx = props.selectedSugIndex === -1 ? -1 : (Math.abs(props.selectedSugIndex) % numMatches);
   let count = 0;
   let listItems = matchingSuggestions.map(item => {
     count++;

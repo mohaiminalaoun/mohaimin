@@ -35,7 +35,8 @@ class App extends React.Component{
       this.props.dispatchCurrentSearch(txt);
     }
   }
-  showSuggestionFn = (startingText, idx = 0) => {
+  // -1 to indicate that no suggestion item should be highlighted
+  showSuggestionFn = (startingText, idx = -1) => {
     this.setState( {
       typing: true
     });

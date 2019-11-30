@@ -2,7 +2,7 @@ const initialState = {
     finalSearchQuery: null,
     shouldShowSuggestion: false,
     startingText: '',
-    selectedSugIndex: 0,
+    selectedSugIndex: -1,
     searchHistory: [],
     currentSearch: null
 };
