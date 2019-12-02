@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="122px" height="90px" viewBox="0 0 122 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="122.5 59.5773089 122.5 116.577309 0.5 116.577309"></polygon>
+        <filter x="-1.6%" y="-3.5%" width="103.3%" height="107.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(-0.500000, -26.577309)">
+            <g id="Triangle">
+                <use fill="#DFC37A" fill-rule="evenodd" xlink:href="#path-1"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            </g>
+            <polygon id="Triangle" fill="#DBB34B" transform="translate(32.000000, 88.077309) rotate(90.000000) translate(-32.000000, -88.077309) " points="32 56.5773089 60.5 119.577309 3.5 119.577309"></polygon>
+            <path d="M23.155159,12.4336582 L77.4735125,33.38471 C81.9182991,35.0991021 83.411132,35.9668859 84.9201501,37.1884527 C86.4291683,38.4100195 87.5915318,39.845419 88.472662,41.5754395 C89.3537921,43.3054599 89.8922354,44.9460933 90.6450407,49.6501928 L99.844841,107.137529 L99.844841,107.137529 L42.1190434,80.1305146 C41.3572412,79.7741054 41.1051955,79.6154408 40.8471432,79.3997229 C40.589091,79.1840049 40.3872201,78.9403281 40.223271,78.6466516 C40.059322,78.3529751 39.9503131,78.0758135 39.7418375,77.2610079 L23.155159,12.4336582 L23.155159,12.4336582 Z" id="Rectangle" fill="#C4663C" transform="translate(61.500000, 59.785593) rotate(-51.000000) translate(-61.500000, -59.785593) "></path>
+            <path d="M59.5,41.5773089 L115.5,67.2846609 L115.5,83.5773089 C115.5,86.3387327 113.261424,88.5773089 110.5,88.5773089 L12.5,88.5773089 C9.73857625,88.5773089 7.5,86.3387327 7.5,83.5773089 L7.5,66.2457501 L7.5,66.2457501 L59.5,41.5773089 Z" id="Polygon" fill="#C8C8C8" transform="translate(61.500000, 65.077309) rotate(-180.000000) translate(-61.500000, -65.077309) "></path>
+            <polygon id="Triangle" fill="#D8D8D8" transform="translate(61.453677, 78.557813) rotate(-180.000000) translate(-61.453677, -78.557813) " points="60.0131312 68.5383165 102.88887 88.5773089 20.0184842 87.6120932"></polygon>
+            <text id="@" font-family="AvenirNext-Bold, Avenir Next" font-size="24" font-weight="bold" fill="#4A4A4A">
+                <tspan x="53.9" y="75.5773089">@</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
