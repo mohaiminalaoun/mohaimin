@@ -40,9 +40,10 @@ const SearchResult =  (props) => {
 
       return (
         <div className="result-container">
-        <img src={src} className="searchresult-image"alt=""/>
-          <div className="result-text">{props.text}</div>
-          <div className="result-desc"><a href={props.href}>{props.href}</a></div>
+          <div className="result-header"></div>
+          <img src={src} className="searchresult-image"alt=""/>
+            <div className="result-text">{props.text}</div>
+            <div className="result-desc"><a href={props.href}>{props.website}</a></div>
         </div>
       );
 

@@ -29,7 +29,7 @@ const SearchResultsContainer = (props) => {
 
     // map into list of SearchResults
     const results = matchingItems.map( (item) => {
-      return <SearchResult key={item.text} href={item.href} text={item.text} icon={item.icon}></SearchResult>;
+      return <SearchResult key={item.text} href={item.href} website={item.website} text={item.text} icon={item.icon}></SearchResult>;
     });
 
     return (
