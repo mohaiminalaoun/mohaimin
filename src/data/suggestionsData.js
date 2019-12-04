@@ -9,7 +9,7 @@ const suggestionItemsData = [
   {
     href: "https://www.linkedin.com/in/mohaiminalaoun",
     text: "Mohaimin's resume",
-    website: "LinkedIn",
+    website: "Open pdf",
     tags: "school experience resume cv curriculum vitae",
     icon: 'resume'
   },

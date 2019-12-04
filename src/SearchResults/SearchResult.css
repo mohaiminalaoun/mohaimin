@@ -1,3 +1,10 @@
+@media screen and (max-width: 650px) {
+  /* styles for browsers smaller than 650; */
+  .result-container {
+    transform: scale(0.8);
+    margin: 0px !important;
+  }
+}
 .result-container {
   padding: 10px;
   display: inline-block;
@@ -41,11 +48,12 @@
   font-size: 14px;
   padding-top: 5px;
   font-family: 'Roboto',arial,sans-serif;
+  cursor: default;
 }
 
 .result-desc {
   padding-top: 25px;
-  padding-left: 60px;
+  float:right;
   text-transform: uppercase;
   font-weight: 800;
   white-space: nowrap;

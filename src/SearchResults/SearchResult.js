@@ -7,6 +7,7 @@ import books from './books.svg';
 import experience from './experience.svg';
 import projects from './projects.svg';
 import resume from './resume.svg';
+import resumepdf from './resumepdf.pdf';
 
 const SearchResult =  (props) => {
 
@@ -43,7 +44,7 @@ const SearchResult =  (props) => {
           <div className="result-header"></div>
           <img src={src} className="searchresult-image"alt=""/>
             <div className="result-text">{props.text}</div>
-            <div className="result-desc"><a href={props.href}>{props.website}</a></div>
+            <div className="result-desc"><a href={(props.icon==="resume") ? resumepdf : props.href} target="_blank">{props.website}</a></div>
         </div>
       );
 
