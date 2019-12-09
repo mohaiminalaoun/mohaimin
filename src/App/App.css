@@ -29,6 +29,17 @@
   to { width: 30% }
 }
 
+@keyframes slight-turn {
+  from { transform: rotateY(0deg) }
+  to { transform: rotateY(20deg) }
+}
+
+@keyframes slight-turn-back {
+  0% { transform: rotateY(20deg) }
+  100% { transform: rotateY(0deg) }
+}
+
+
 @keyframes blink-caret {
   from, to { border-color: orange }
   50% { border-color: transparent}
@@ -95,4 +106,13 @@
 .face-avatar {
   height: 25vmin;
   margin-top: 40vmin;
+  animation: slight-turn-back 1s normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.face-avatar:hover {
+  animation: slight-turn 1s normal;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }

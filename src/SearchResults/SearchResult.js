@@ -1,12 +1,13 @@
 import React from 'react';
 import './SearchResult.css';
-import musicbar from './musicbar.svg';
+import musicbar from './music3.svg';
 import college from './college.svg';
-import email from './email.svg';
-import books from './books.svg';
-import experience from './experience.svg';
-import projects from './projects.svg';
-import resume from './resume.svg';
+import email from './email2.svg';
+import books from './books2.svg';
+import experience from './work.svg';
+import school from './school.svg';
+import projects from './projects2.svg';
+import resume from './experience.svg';
 import resumepdf from './resumepdf.pdf';
 
 const SearchResult =  (props) => {
@@ -17,7 +18,7 @@ const SearchResult =  (props) => {
           src = musicbar;
           break;
         case 'college':
-          src = college;
+          src = school;
           break;
         case 'email':
           src = email;
@@ -41,10 +42,13 @@ const SearchResult =  (props) => {
 
       return (
         <div className="result-container">
-          <div className="result-header"></div>
+        {/* <div className="result-header"></div> */}
+          <div className="curtain">
+            <div className="curtain-text">{props.text}</div>
+          </div>
           <img src={src} className="searchresult-image"alt=""/>
-            <div className="result-text">{props.text}</div>
-            <div className="result-desc"><a href={(props.icon==="resume") ? resumepdf : props.href} target="_blank">{props.website}</a></div>
+          {/*<div className="result-text">{props.text}</div>*/}
+          {/* <div className="result-desc"><a href={(props.icon==="resume") ? resumepdf : props.href} target="_blank">{props.website}</a></div>*/}
         </div>
       );
 

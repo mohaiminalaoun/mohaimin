@@ -37,17 +37,28 @@ class App extends React.Component{
   }
   // -1 to indicate that no suggestion item should be highlighted
   showSuggestionFn = (startingText, idx = -1) => {
-    this.setState( {
-      typing: true
+    
+    const Prom = new Promise((resolve, reject) => {
+      this.setState( {
+        typing: true
+      });
+      resolve();
+      reject();
     });
-    if (this.state.typing) {
-      setTimeout(() => {
-        this.setState({
-          typing : false
-        })
-      }, 200);
-    }
-    this.props.dispatchShowSuggestion(startingText, idx);
+
+
+    Prom.then( (param) => {
+      if (this.state.typing) {
+        setTimeout(() => {
+          this.setState({
+            typing : false
+          })
+        }, 200);
+      }
+    }, (param) => {
+    }).then((param) => {
+      this.props.dispatchShowSuggestion(startingText, idx);
+    });
   }
 
   hideSuggestionFn = (startingText) => {
