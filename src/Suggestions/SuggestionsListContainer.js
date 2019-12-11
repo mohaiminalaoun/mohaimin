@@ -30,6 +30,20 @@ function getListItems() {
   return listItems;
 }
 
+// function to convert LRU cache to array
+function getCachedSearchHistory(LRU) {
+  let dummyHead = LRU && LRU.dummyHead,
+      arr = [],
+      cur = dummyHead;
+  while (cur!==null) {
+    arr.push(cur.val);
+    cur = cur.next;
+  }
+  arr.pop();
+  arr.shift();
+  return arr;
+}
+
 
 class SuggestionsListContainer extends React.Component{
 
@@ -60,7 +74,8 @@ class SuggestionsListContainer extends React.Component{
   }
 
   render() {
-    let searchHistory = this.props.searchHistory.map( (item) =>
+    let cachedSearchHistory = getCachedSearchHistory(this.props.LRUCache);
+    let searchHistory = cachedSearchHistory.map( (item) =>
               <ul id={item} key={(Math.floor(1000 + Math.random() * 9000))+(item)}className="suggestionItem history">{item}</ul>),
         listItems = getListItems.call(this);
       return <SuggestionsList searchHistory={searchHistory} listItems={listItems} shouldShowSuggestion={this.props.shouldShowSuggestion}></SuggestionsList>;

@@ -37,7 +37,7 @@ class App extends React.Component{
   }
   // -1 to indicate that no suggestion item should be highlighted
   showSuggestionFn = (startingText, idx = -1) => {
-    
+
     const Prom = new Promise((resolve, reject) => {
       this.setState( {
         typing: true
@@ -115,6 +115,7 @@ class App extends React.Component{
                          inputValue={this.props.startingText}
                          showSuggestionFn={this.showSuggestionFn}
                          searchHistory={this.props.searchHistory}
+                         LRUCache={this.props.LRUCache}
                          selectedSugIndex={this.props.selectedSugIndex}>
               </SuggestionsListContainer>
               <SearchResultsContainer
@@ -136,6 +137,7 @@ const mapStateToProps = state => ({
     startingText: state.startingText,
     selectedSugIndex: state.selectedSugIndex,
     searchHistory: state.searchHistory,
+    LRUCache: state.LRUCache,
     currentSearch: state.currentSearch
   });
 

@@ -6,11 +6,15 @@ import email from './email2.svg';
 import books from './books2.svg';
 import experience from './work.svg';
 import school from './school.svg';
-import projects from './projects2.svg';
+import projects from './projects3.svg';
 import resume from './experience.svg';
 import resumepdf from './resumepdf.pdf';
 
 const SearchResult =  (props) => {
+
+  const openTab = (href) => {
+
+  }
 
   let src;
       switch (props.icon) {
@@ -44,7 +48,7 @@ const SearchResult =  (props) => {
         <div className="result-container">
         {/* <div className="result-header"></div> */}
           <div className="curtain">
-            <div className="curtain-text">{props.text}</div>
+            <div className="curtain-text" onClick={() => openTab(props.href)}>{props.text}</div>
           </div>
           <img src={src} className="searchresult-image"alt=""/>
           {/*<div className="result-text">{props.text}</div>*/}

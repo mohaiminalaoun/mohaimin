@@ -1,10 +1,13 @@
+import { LRUCache } from './LRU';
+
 const initialState = {
     finalSearchQuery: null,
     shouldShowSuggestion: false,
     startingText: '',
     selectedSugIndex: -1,
     searchHistory: [],
-    currentSearch: null
+    currentSearch: null,
+    LRUCache: null
 };
 
 const SearchReducer = (state = initialState, action) => {
@@ -30,6 +33,12 @@ const SearchReducer = (state = initialState, action) => {
     }
 
     else if (action.type==="addSearchQuery") {
+      if (initialState.searchHistory.length==0) {
+        initialState.LRUCache = new LRUCache(3);
+      }
+      var key = action.payload.finalSearchQuery.toLowerCase(),
+          value = action.payload.finalSearchQuery;
+      initialState.LRUCache.put(key, value);
       initialState.searchHistory.unshift(action.payload.finalSearchQuery);
       if (initialState.searchHistory.length>3) {
         initialState.searchHistory.pop();
