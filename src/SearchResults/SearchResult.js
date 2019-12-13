@@ -16,6 +16,24 @@ const SearchResult =  (props) => {
 
   }
 
+  const showButton = (ev) => {
+    ev.currentTarget.parentElement.children[1].classList.add("hover-btn");
+  }
+  const hideButton = (ev) => {
+    ev.currentTarget.parentElement.children[1].classList.remove("hover-btn");
+  }
+
+  const showButtonPerm = (ev) => {
+    ev.currentTarget.classList.add("hover-btn");
+  }
+  const hideButtonPerm = (ev) => {
+    ev.currentTarget.classList.remove("hover-btn");
+  }
+  const click = (ev) => {
+    console.log("clicked");
+    window.open(ev.currentTarget.dataset.url);
+  }
+
   let src;
       switch (props.icon) {
         case 'musicbar':
@@ -47,9 +65,10 @@ const SearchResult =  (props) => {
       return (
         <div className="result-container">
         {/* <div className="result-header"></div> */}
-          <div className="curtain">
+          <div className="curtain" onMouseEnter={showButton} onMouseLeave={hideButton}>
             <div className="curtain-text" onClick={() => openTab(props.href)}>{props.text}</div>
           </div>
+          <button data-url={(props.icon==="resume") ? resumepdf : props.href} className="search-result-btn" onMouseEnter={showButtonPerm} onMouseLeave={hideButtonPerm} onClick={click}>OPEN</button>
           <img src={src} className="searchresult-image"alt=""/>
           {/*<div className="result-text">{props.text}</div>*/}
           {/* <div className="result-desc"><a href={(props.icon==="resume") ? resumepdf : props.href} target="_blank">{props.website}</a></div>*/}
