@@ -126,3 +126,15 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
+.loading-screen {
+  padding-top: 50%;
+  font-size: 32px;
+  animation: float-in 3s linear;
+}
+
+.welcome-text {
+  position: absolute;
+  width: 100vw;
+  animation: float-in 3s;
+}

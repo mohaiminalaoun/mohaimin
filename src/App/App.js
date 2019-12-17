@@ -14,8 +14,16 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      typing: false
+      typing: false,
+      loadingDone: false
     };
+    /*After this time, the main app would show*/
+    setTimeout(() => {
+      this.setState({
+        loadingDone: true
+      });
+      this.updateDimensions();
+    }, 5000);
   }
 
   triggerSearch = (txt, finalSearchQuery, isEnterPressed) => {
@@ -111,35 +119,42 @@ class App extends React.Component {
         searchHistory,
         LRUCache,
         currentSearch
-      } = this.props;
-    //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />
-    return (
-      <div className="background">
-        <SearchBoxContainer
-          searchTriggerFn={this.triggerSearch}
-          finalSearchQuery={finalSearchQuery}
-          showSuggestionFn={this.showSuggestionFn}
-          hideSuggestionFn={this.hideSuggestionFn}
-          shouldShowSuggestion={shouldShowSuggestion}
-          selectedSugIndex={selectedSugIndex}
-        ></SearchBoxContainer>
-        <SuggestionsListContainer
-          shouldShowSuggestion={shouldShowSuggestion}
-          searchTriggerFn={this.triggerSearch}
-          inputValue={startingText}
-          showSuggestionFn={this.showSuggestionFn}
-          searchHistory={searchHistory}
-          LRUCache={LRUCache}
-          selectedSugIndex={selectedSugIndex}
-        ></SuggestionsListContainer>
-        <SearchResultsContainer
-          shouldShowSuggestion={shouldShowSuggestion}
-          searchHistory={searchHistory}
-          currentSearch={currentSearch}
-        ></SearchResultsContainer>
-        {imageDiv}
-      </div>
-    );
+      } = this.props,
+      loadingScreen = (
+        <div className="background loading-screen">
+          <div className="welcome-text">Welcome to my website</div>
+        </div>
+      ),
+      mainApp = (
+        <div className="mainApp">
+          <div className="background">
+            <SearchBoxContainer
+              searchTriggerFn={this.triggerSearch}
+              finalSearchQuery={finalSearchQuery}
+              showSuggestionFn={this.showSuggestionFn}
+              hideSuggestionFn={this.hideSuggestionFn}
+              shouldShowSuggestion={shouldShowSuggestion}
+              selectedSugIndex={selectedSugIndex}
+            ></SearchBoxContainer>
+            <SuggestionsListContainer
+              shouldShowSuggestion={shouldShowSuggestion}
+              searchTriggerFn={this.triggerSearch}
+              inputValue={startingText}
+              showSuggestionFn={this.showSuggestionFn}
+              searchHistory={searchHistory}
+              LRUCache={LRUCache}
+              selectedSugIndex={selectedSugIndex}
+            ></SuggestionsListContainer>
+            <SearchResultsContainer
+              shouldShowSuggestion={shouldShowSuggestion}
+              searchHistory={searchHistory}
+              currentSearch={currentSearch}
+            ></SearchResultsContainer>
+            {imageDiv}
+          </div>
+        </div>
+      );
+    return <div>{this.state.loadingDone ? mainApp : loadingScreen}</div>;
   };
 }
 
