@@ -128,13 +128,13 @@
 }
 
 .loading-screen {
-  padding-top: 50%;
   font-size: 32px;
   animation: float-in 3s linear;
 }
 
 .welcome-text {
   position: absolute;
+  margin-top: 50vh;
   width: 100vw;
   animation: float-in 3s;
 }

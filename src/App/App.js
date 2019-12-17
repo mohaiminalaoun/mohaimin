@@ -4,9 +4,9 @@ import SuggestionsListContainer from "../Suggestions/SuggestionsListContainer";
 import SearchBoxContainer from "../SearchBox/SearchBoxContainer";
 import SearchResultsContainer from "../SearchResults/SearchResultsContainer";
 import { connect } from "react-redux";
-import logo from "./logo.svg";
-import face from "./manwithpc2.svg";
-import faceLight from "./manwithpc2.svg"; // TODO: change this logo
+import logo from "./assets/logo.svg";
+import face from "./assets/manwithpc2.svg";
+import faceLight from "./assets/manwithpc2.svg"; // TODO: change this logo
 //import half from './half.svg';
 import "./App.css";
 
@@ -122,7 +122,7 @@ class App extends React.Component {
       } = this.props,
       loadingScreen = (
         <div className="background loading-screen">
-          <div className="welcome-text">Welcome to my website</div>
+          <h4 className="welcome-text">Welcome to my website</h4>
         </div>
       ),
       mainApp = (
