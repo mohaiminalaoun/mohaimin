@@ -37,7 +37,7 @@
 }
 .search-container::before {
   content: " ";
-  background-image: url("./searchicon.svg");
+  background-image: url("./assets/searchicon.svg");
   background-repeat: no-repeat;
   background-size: 4vh 4vh;
   margin-top: 21vh;

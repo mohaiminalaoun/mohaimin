@@ -10,7 +10,7 @@ import projects from "./assets/projects3.svg";
 import resume from "./assets/experience.svg";
 import resumepdf from "./assets/resumepdf.pdf";
 
-const SearchResult = props => {
+const SearchResult = ({ icon, text, href }) => {
   const openTab = href => {};
 
   const showButton = ev => {
@@ -27,12 +27,11 @@ const SearchResult = props => {
     ev.currentTarget.classList.remove("hover-btn");
   };
   const click = ev => {
-    console.log("clicked");
     window.open(ev.currentTarget.dataset.url);
   };
 
   let src;
-  switch (props.icon) {
+  switch (icon) {
     case "musicbar":
       src = musicbar;
       break;
@@ -66,12 +65,12 @@ const SearchResult = props => {
         onMouseEnter={showButton}
         onMouseLeave={hideButton}
       >
-        <div className="curtain-text" onClick={() => openTab(props.href)}>
-          {props.text}
+        <div className="curtain-text" onClick={() => openTab(href)}>
+          {text}
         </div>
       </div>
       <button
-        data-url={props.icon === "resume" ? resumepdf : props.href}
+        data-url={icon === "resume" ? resumepdf : href}
         className="search-result-btn"
         onMouseEnter={showButtonPerm}
         onMouseLeave={hideButtonPerm}
@@ -80,8 +79,6 @@ const SearchResult = props => {
         OPEN
       </button>
       <img src={src} className="searchresult-image" alt="" />
-      {/*<div className="result-text">{props.text}</div>*/}
-      {/* <div className="result-desc"><a href={(props.icon==="resume") ? resumepdf : props.href} target="_blank">{props.website}</a></div>*/}
     </div>
   );
 };

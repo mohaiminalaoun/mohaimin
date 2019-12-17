@@ -89,44 +89,53 @@ class App extends React.Component {
 
   render = () => {
     const imageDiv = (
-      <div>
-        <div id="logo-container" className="logo-container">
-          <img src={logo} className="App-logo" alt="logo" />
-          <img src={logo} className="App-logo shadow" alt="logo" />
-        </div>
         <div>
-          <img
-            src={this.state.typing ? faceLight : face}
-            className="face-avatar"
-            alt="logo"
-          />
+          <div id="logo-container" className="logo-container">
+            <img src={logo} className="App-logo" alt="logo" />
+            <img src={logo} className="App-logo shadow" alt="logo" />
+          </div>
+          <div>
+            <img
+              src={this.state.typing ? faceLight : face}
+              className="face-avatar"
+              alt="logo"
+            />
+          </div>
         </div>
-      </div>
-    );
+      ),
+      {
+        finalSearchQuery,
+        shouldShowSuggestion,
+        selectedSugIndex,
+        startingText,
+        searchHistory,
+        LRUCache,
+        currentSearch
+      } = this.props;
     //  <img src={half} id = "half-logo" className="App-logo shadow half" alt="logo" />
     return (
       <div className="background">
         <SearchBoxContainer
           searchTriggerFn={this.triggerSearch}
-          finalSearchQuery={this.props.finalSearchQuery}
+          finalSearchQuery={finalSearchQuery}
           showSuggestionFn={this.showSuggestionFn}
           hideSuggestionFn={this.hideSuggestionFn}
-          shouldShowSuggestion={this.props.shouldShowSuggestion}
-          selectedSugIndex={this.props.selectedSugIndex}
+          shouldShowSuggestion={shouldShowSuggestion}
+          selectedSugIndex={selectedSugIndex}
         ></SearchBoxContainer>
         <SuggestionsListContainer
-          shouldShowSuggestion={this.props.shouldShowSuggestion}
+          shouldShowSuggestion={shouldShowSuggestion}
           searchTriggerFn={this.triggerSearch}
-          inputValue={this.props.startingText}
+          inputValue={startingText}
           showSuggestionFn={this.showSuggestionFn}
-          searchHistory={this.props.searchHistory}
-          LRUCache={this.props.LRUCache}
-          selectedSugIndex={this.props.selectedSugIndex}
+          searchHistory={searchHistory}
+          LRUCache={LRUCache}
+          selectedSugIndex={selectedSugIndex}
         ></SuggestionsListContainer>
         <SearchResultsContainer
-          shouldShowSuggestion={this.props.shouldShowSuggestion}
-          searchHistory={this.props.searchHistory}
-          currentSearch={this.props.currentSearch}
+          shouldShowSuggestion={shouldShowSuggestion}
+          searchHistory={searchHistory}
+          currentSearch={currentSearch}
         ></SearchResultsContainer>
         {imageDiv}
       </div>

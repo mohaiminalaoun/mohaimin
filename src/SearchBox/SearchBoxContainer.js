@@ -14,16 +14,22 @@ class SearchBoxContainer extends React.Component {
     // TODO: add style changess
   };
   onKeyUp = evt => {
-    const val = evt.target.value;
+    const val = evt.target.value,
+      {
+        searchTriggerFn,
+        showSuggestionFn,
+        finalSearchQuery,
+        selectedSugIndex
+      } = this.props;
     if (evt.key === "Enter") {
       // call the search function defined in App component
-      this.props.searchTriggerFn(val, this.props.finalSearchQuery, true);
+      searchTriggerFn(val, finalSearchQuery, true);
     } else if (evt.key === "ArrowDown") {
-      this.props.showSuggestionFn(val, this.props.selectedSugIndex + 1);
+      showSuggestionFn(val, selectedSugIndex + 1);
     } else if (evt.key === "ArrowUp") {
-      this.props.showSuggestionFn(val, this.props.selectedSugIndex - 1);
+      showSuggestionFn(val, selectedSugIndex - 1);
     } else {
-      this.props.showSuggestionFn(val);
+      showSuggestionFn(val);
     }
   };
   onBlur = evt => {

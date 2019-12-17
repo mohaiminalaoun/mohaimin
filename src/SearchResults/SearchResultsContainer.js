@@ -3,10 +3,14 @@ import SearchResult from "./SearchResult";
 import SuggestionsData from "../data/suggestionsData";
 import "./SearchResult.css";
 
-const SearchResultsContainer = props => {
+const SearchResultsContainer = ({
+  currentSearch,
+  searchHistory,
+  shouldShowSuggestion
+}) => {
   const query =
-    (props.currentSearch && props.currentSearch.toLowerCase()) ||
-    (props.searchHistory && props.searchHistory[0]);
+    (currentSearch && currentSearch.toLowerCase()) ||
+    (searchHistory && searchHistory[0]);
   // if exact match, we skip partial matches
   const exactMatch = SuggestionsData.suggestionItemsData.filter(data => {
     if (query && data.text.toLowerCase() === query.trim()) {
@@ -49,7 +53,7 @@ const SearchResultsContainer = props => {
 
   return (
     <div className="search-results-container">
-      {props.shouldShowSuggestion ? null : results}
+      {shouldShowSuggestion ? null : results}
     </div>
   );
 };

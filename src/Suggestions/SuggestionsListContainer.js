@@ -7,14 +7,11 @@ import SuggestionsList from "./SuggestionsList";
 Function to get suggestion list dropdown items div
 */
 function getListItems() {
-  let props = this.props,
-    inputValue = props.inputValue;
+  const {inputValue, selectedSugIndex} = this.props;
   const query = inputValue && inputValue.toLowerCase();
   let suggestionItemsData = SuggestionsData.suggestionItemsData;
   let matchingSuggestions = suggestionItemsData.filter(item => {
-    let href = item.href,
-      text = item.text,
-      tags = item.tags;
+    let {href, text, tags} = item;
     return (
       href.toLowerCase().indexOf(query) !== -1 ||
       text.toLowerCase().indexOf(query) !== -1 ||
@@ -23,21 +20,23 @@ function getListItems() {
   });
   let numMatches = matchingSuggestions.length;
   let curSelIdx =
-    props.selectedSugIndex === -1
+    selectedSugIndex === -1
       ? -1
-      : Math.abs(props.selectedSugIndex) % numMatches;
+      : Math.abs(selectedSugIndex) % numMatches;
   let count = 0;
   let listItems = matchingSuggestions.map(item => {
+    let {text, href} = item,
+        {doAction, hoverOnItem} = this;
     count++;
     return (
       <ul
-        onMouseDown={this.doAction}
+        onMouseDown={doAction}
         id={count - 1 + "sugItem"}
-        key={item.text}
-        onMouseOver={this.hoverOnItem}
+        key={text}
+        onMouseOver={hoverOnItem}
         className={"suggestionItem " + (curSelIdx === count - 1 ? "hover" : "")}
       >
-        <a href={item.href}> {item.text} </a>
+        <a href={href}> {text} </a>
       </ul>
     );
   });
@@ -89,7 +88,8 @@ class SuggestionsListContainer extends React.Component {
   };
 
   render() {
-    let cachedSearchHistory = getCachedSearchHistory(this.props.LRUCache);
+    const { LRUCache, shouldShowSuggestion } = this.props;
+    let cachedSearchHistory = getCachedSearchHistory(LRUCache);
     let searchHistory = cachedSearchHistory.map(item => (
         <ul
           id={item}
@@ -104,7 +104,7 @@ class SuggestionsListContainer extends React.Component {
       <SuggestionsList
         searchHistory={searchHistory}
         listItems={listItems}
-        shouldShowSuggestion={this.props.shouldShowSuggestion}
+        shouldShowSuggestion={shouldShowSuggestion}
       ></SuggestionsList>
     );
   }

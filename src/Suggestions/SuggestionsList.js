@@ -1,11 +1,15 @@
 import React from "react";
 import "./SuggestionsList.css";
 
-const SuggestionsList = props => {
-  return props.shouldShowSuggestion ? (
+const SuggestionsList = ({
+  shouldShowSuggestion,
+  listItems,
+  searchHistory
+}) => {
+  return shouldShowSuggestion ? (
     <div className="suggestionsList" id="suggestionList">
-      {props.listItems}
-      {props.searchHistory}
+      {listItems}
+      {searchHistory}
     </div>
   ) : null;
 };
