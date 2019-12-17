@@ -16,26 +16,26 @@
   padding-top: 20%;
   padding-bottom: 50%; /* to make sure hover works properly*/
   padding-right: 5px;
-  font-weight:800;
+  font-weight: 800;
   cursor: default;
 }
-.curtain-text:hover{
+.curtain-text:hover {
   opacity: 1;
 }
 .result-container {
   padding: 5px;
   display: inline-block;
-/*  width: 150px; */
+  /*  width: 150px; */
   border: 5px black;
   background: white;
-/*  height: 150px; */
+  /*  height: 150px; */
   color: black;
   margin-bottom: 5px;
   margin: 10px;
   border-radius: 10px;
   text-align: left;
   opacity: 0.9;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .curtain {
@@ -49,16 +49,16 @@
   opacity: 0;
 }
 
-.curtain:hover{
+.curtain:hover {
   opacity: 0.5;
 }
 
-.result-container:hover{
-/*  height: 50px; */
+.result-container:hover {
+  /*  height: 50px; */
   transform: scale(1.02);
   opacity: 1;
 }
-.searchresult-image{
+.searchresult-image {
   height: 140px;
   width: 140px;
 }
@@ -72,37 +72,36 @@
 }
 
 .result-text {
-
   overflow: hidden;
   font-size: 14px;
-  font-family: 'Roboto',arial,sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   cursor: default;
 }
 
 .result-desc {
   padding-top: 25px;
-  float:right;
+  float: right;
   text-transform: uppercase;
   font-weight: 800;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 12px;
-  font-family: 'Roboto',arial,sans-serif;
+  font-family: "Roboto", arial, sans-serif;
   color: #505050;
 }
 
-.result-desc a{
+.result-desc a {
   text-decoration: none;
 }
 
 .result-header {
-      height: 40px;
-      background: #629780;
-      margin: -10px;
-      margin-bottom: -35px;
-      border-top-left-radius: 12px;
-      border-top-right-radius: 12px;
+  height: 40px;
+  background: #629780;
+  margin: -10px;
+  margin-bottom: -35px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .search-result-btn {
@@ -112,9 +111,9 @@
   background-color: #6c7b95;
   color: white;
   visibility: hidden;
-  outline:none;
+  outline: none;
 }
 
-.hover-btn{
+.hover-btn {
   visibility: visible;
 }

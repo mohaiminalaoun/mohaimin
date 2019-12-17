@@ -1,14 +1,6 @@
 .App {
   text-align: center;
 }
-@keyframes rotation {
-		from {
-				-webkit-transform: rotate(0deg);
-		}
-		to {
-				-webkit-transform: rotate(359deg);
-		}
-}
 
 @media screen and (max-width: 650px) {
   /* styles for browsers larger than 960px; */
@@ -48,6 +40,24 @@
 @keyframes fade-out {
   from { border-color: orange }
   to { border-color: transparent }
+}
+
+@keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+@keyframes float-in {
+  from {
+    left: -1000px;
+  }
+  to {
+    left: 0px;
+  }
 }
 
 .welcome-text {
