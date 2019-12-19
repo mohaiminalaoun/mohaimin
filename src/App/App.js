@@ -6,6 +6,7 @@ import SearchResultsContainer from "../SearchResults/SearchResultsContainer";
 import { connect } from "react-redux";
 import logo from "./assets/logo.svg";
 import face from "./assets/manwithpc2.svg";
+import moon from "./assets/Moon.svg";
 import faceLight from "./assets/manwithpc2.svg"; // TODO: change this logo
 //import half from './half.svg';
 import "./App.css";
@@ -124,6 +125,7 @@ class App extends React.Component {
       loadingScreen = (
         <div className="background loading-screen">
           <h4 className="welcome-text">Welcome to my website</h4>
+          <img src={moon} className="moon-image"/>
         </div>
       ),
       mainApp = (
