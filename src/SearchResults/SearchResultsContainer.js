@@ -44,6 +44,7 @@ const SearchResultsContainer = ({
       <SearchResult
         key={item.text}
         href={item.href}
+        desc={item.desc}
         website={item.website}
         text={item.text}
         icon={item.icon}

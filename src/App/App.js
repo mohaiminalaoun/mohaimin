@@ -29,18 +29,19 @@ class App extends React.Component {
   triggerSearch = (txt, finalSearchQuery, isEnterPressed) => {
     // temporary function to find items with class hover
     const classList = document.getElementsByClassName("hover"),
-      selText = classList && classList[0] && classList[0].innerText;
+      selText = classList && classList[0] && classList[0].innerText,
+      {dispatchaddSearchQuery, dispatchCurrentSearch} = this.props;
     if (selText) {
       // means a hovered suggested item was clicked
-      this.props.dispatchaddSearchQuery(selText);
+      dispatchaddSearchQuery(selText);
       if (classList[0] && classList[0].children) {
         //window.open(classList[0].children[0].href, "_blank");
       }
-      this.props.dispatchCurrentSearch(selText);
+      dispatchCurrentSearch(selText);
     } else if (isEnterPressed) {
       // means a hovered search item was not clicked, so search for the actial text input
-      this.props.dispatchaddSearchQuery(txt);
-      this.props.dispatchCurrentSearch(txt);
+      dispatchaddSearchQuery(txt);
+      dispatchCurrentSearch(txt);
     }
   };
   // -1 to indicate that no suggestion item should be highlighted

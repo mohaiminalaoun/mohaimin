@@ -1,11 +1,18 @@
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
   /* styles for browsers smaller than 350px; */
   /*.search-container::before {
     visibility: hidden;
   } */
   #searchbox {
     width: 80vw !important;
-    border-radius: 4vw !important;
+    border-left: hidden;
+    border-right: hidden;
+    border-top: hidden;
+    border-radius: 0px !important;
+  }
+  .search-container::before {
+    position: relative !important;
+    left: -10vw;
   }
 }
 
