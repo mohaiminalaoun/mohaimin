@@ -1,23 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "edaf2f71f0c176216a6c1ddf63ea1371",
+    "revision": "dfdf7a644a0d104aebccdb1b05530471",
     "url": "/index.html"
   },
   {
-    "revision": "305ad711aa47c88eb2d1",
-    "url": "/static/css/main.f8883593.chunk.css"
+    "revision": "088f470ed0586312cd7b",
+    "url": "/static/css/main.49b9c845.chunk.css"
   },
   {
-    "revision": "27e12444b72e15e6e9c8",
-    "url": "/static/js/2.aa97cbf2.chunk.js"
+    "revision": "fb3672dbfb7d3d10c7de",
+    "url": "/static/js/2.e8567a73.chunk.js"
   },
   {
-    "revision": "305ad711aa47c88eb2d1",
-    "url": "/static/js/main.0c2edde3.chunk.js"
+    "revision": "088f470ed0586312cd7b",
+    "url": "/static/js/main.3fcf4bef.chunk.js"
   },
   {
-    "revision": "ba6fe49d2c8e0ac2e987",
-    "url": "/static/js/runtime-main.656a2237.js"
+    "revision": "add24410bb42ec492cea",
+    "url": "/static/js/runtime-main.b391ae8f.js"
+  },
+  {
+    "revision": "5eb7f59cb7ddd06e1a1394cdc7c11b1b",
+    "url": "/static/media/Moon.5eb7f59c.svg"
   },
   {
     "revision": "4489e5f3d9f30c689e94ee88d4463d30",
@@ -52,6 +56,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/projects3.f3b282b4.svg"
   },
   {
+    "revision": "a3f200bc01d317d5c6910d24308d577e",
+    "url": "/static/media/question.a3f200bc.svg"
+  },
+  {
     "revision": "5c22a0ad290f0774281a557822469843",
     "url": "/static/media/resumepdf.5c22a0ad.pdf"
   },
@@ -64,7 +72,11 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/searchicon.641cb369.svg"
   },
   {
-    "revision": "5fb1ace3ba72fa8bcfd1b14630c474a6",
-    "url": "/static/media/work.5fb1ace3.svg"
+    "revision": "993e7e77337be450e8764338aed18394",
+    "url": "/static/media/stars.993e7e77.svg"
+  },
+  {
+    "revision": "ba42d95ca59e041e2a595dcae92cc07e",
+    "url": "/static/media/work.ba42d95c.svg"
   }
 ]);
