@@ -1,32 +1,95 @@
+
+
 @media screen and (max-width: 420px) {
   /* styles for browsers smaller than 350px; */
-  /*.search-container::before {
-    visibility: hidden;
-  } */
   #searchbox {
-    width: 80vw !important;
+    width: 70vw !important;
     border-left: hidden;
     border-right: hidden;
     border-top: hidden;
     border-radius: 0px !important;
+  /*  height: 4vh !important;
+    margin-top: 27vh !important; */
+  }
+  .bg-text {
+  /*  visibility: hidden !important; */
+    width: 80vw !important;
+    left: 5vw !important;
+    top: 22vh !important;
   }
   .search-container::before {
-    position: relative !important;
-    left: -10vw;
+  /*  position: relative !important;
+    left: -10vw; */
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .bg-text {
+    display: none !important;
+  }
+  #searchbox {
+  /*  width: 80vw !important; */
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .bg-text {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  #searchbox {
+  /*  margin-left: 5vw !important; */
+  }
+  .search-container::before {
+  /*  margin-left: 6vw !important; */
+  }
+  .bg-text {
+    left: 15vw !important;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  #searchbox {
+  /*  margin-left: 5vw !important; */
+  }
+  .search-container::before {
+  /*  margin-left: 6vw !important; */
+  }
+  .bg-text {
+    left: 15vw !important;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  #searchbox {
+  /*  margin-left: 0vw !important; */
+  }
+  .search-container::before {
+/*    margin-left: 1vw !important; */
+  }
+  .bg-text {
+    left: 20vw !important;
   }
 }
 
 #searchbox {
-  margin-top: 20vh;
   background: #1e232b;
   opacity: 0.9;
   height: 5vh;
-  width: 50vw;
+  width: 40vw;
   min-width: 100px;
-  border-radius: 2vmin;
+/*  border-radius: 2vmin; */
+  border-left: hidden;
+  border-right: hidden;
+  border-top: hidden;
+  border-radius: 0px !important;
   color: white;
   min-height: 30px;
-  margin-right: -6vmin;
+/*  margin-right: -6vmin; */
   font-family: sans-serif;
   font-size: calc(12px + 1.5vmin);
   padding-left: 2vw;
@@ -42,15 +105,29 @@
   border-top-right-radius: 2vmin;
   border-top-left-radius: 2vmin;
 }
+.search-container {
+  padding-top: 20vh;
+}
+.question-text {
+  font-family: monospace;
+  padding-bottom: 1vh;
+  white-space: nowrap;
+}
+.question-highlight {
+  color: aquamarine;
+}
 .search-container::before {
   content: " ";
   background-image: url("./assets/searchicon.svg");
   background-repeat: no-repeat;
   background-size: 4vh 4vh;
-  margin-top: 21vh;
+  margin-top: calc(12px + 4vmin);
   float: right;
   position: absolute;
   margin-left: 1vw;
   height: 4vh;
+  min-height: 12px;
+  min-width: 12px;
   width: 4vh;
+  margin-left: calc(16vw - 8px);
 }

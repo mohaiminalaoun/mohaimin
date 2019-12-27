@@ -23,6 +23,7 @@ class SearchBoxContainer extends React.Component {
       } = this.props;
     if (evt.key === "Enter") {
       // call the search function defined in App component
+      evt.target.blur();
       searchTriggerFn(val, finalSearchQuery, true);
     } else if (evt.key === "ArrowDown") {
       showSuggestionFn(val, selectedSugIndex + 1);

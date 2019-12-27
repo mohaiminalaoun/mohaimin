@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./SearchResult.css";
 import musicbar from "./assets/music3.svg";
 import college from "./assets/college.svg";
@@ -10,7 +10,7 @@ import projects from "./assets/projects3.svg";
 import resume from "./assets/experience.svg";
 import resumepdf from "./assets/resumepdf.pdf";
 
-const SearchResult = ({ icon, text, href, desc}) => {
+const SearchResult = ({ icon, text, href, desc }) => {
   const openTab = href => {};
 
   const showButton = ev => {
@@ -29,6 +29,10 @@ const SearchResult = ({ icon, text, href, desc}) => {
   const click = ev => {
     window.open(ev.currentTarget.dataset.url);
   };
+
+  useEffect( () => {
+      console.log("useeffect called in searchresults");
+  });
 
   let src;
   switch (icon) {
@@ -68,9 +72,7 @@ const SearchResult = ({ icon, text, href, desc}) => {
         <div className="curtain-text" onClick={() => openTab(href)}>
           {text}
         </div>
-        <div className="curtain-desc">
-          {desc}
-        </div>
+        <div className="curtain-desc">{desc}</div>
       </div>
       <button
         data-url={icon === "resume" ? resumepdf : href}
