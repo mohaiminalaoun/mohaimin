@@ -4,6 +4,7 @@ import SuggestionsListContainer from "../Suggestions/SuggestionsListContainer";
 import SearchBoxContainer from "../SearchBox/SearchBoxContainer";
 import SearchResultsContainer from "../SearchResults/SearchResultsContainer";
 import NamePlateContainer from "../NamePlate/NamePlateContainer";
+import HighlightsContainer from "../Highlights/HighlightsContainer";
 import { connect } from "react-redux";
 import logo from "./assets/logo.svg";
 import face from "./assets/manwithpc2.svg";
@@ -141,6 +142,7 @@ class App extends React.Component {
             ></SearchResultsContainer>
           </div>
           <NamePlateContainer />
+          <HighlightsContainer />
         </div>
       );
     return <div>{this.state.loadingDone ? mainApp : loadingScreen}</div>;
