@@ -9,13 +9,11 @@ const SearchBox = props => {
     //console.log("useEffect in searchbox is called");
     //setCount(count+1); // don't do this
   });
-  let placeholderText =
-      suggestionItemsData[
-        Math.floor(Math.random() * suggestionItemsData.length)
-      ].text;
+  let placeholderText = "Search";
+  // suggestionItemsData[Math.floor(Math.random() * suggestionItemsData.length)]
+  //   .text;
   return (
     <div className="search-container">
-      <div className="question-text">{"Find answers to "} <span className="question-highlight">questions </span> {"such as"}</div>
       <input
         id="searchbox"
         value={props.input}

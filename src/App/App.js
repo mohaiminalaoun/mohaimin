@@ -3,6 +3,7 @@ import React from "react";
 import SuggestionsListContainer from "../Suggestions/SuggestionsListContainer";
 import SearchBoxContainer from "../SearchBox/SearchBoxContainer";
 import SearchResultsContainer from "../SearchResults/SearchResultsContainer";
+import NamePlateContainer from "../NamePlate/NamePlateContainer";
 import { connect } from "react-redux";
 import logo from "./assets/logo.svg";
 import face from "./assets/manwithpc2.svg";
@@ -24,14 +25,14 @@ class App extends React.Component {
         loadingDone: true
       });
       this.updateDimensions();
-    }, 5000);
+    }, 50);
   }
 
   triggerSearch = (txt, finalSearchQuery, isEnterPressed) => {
     // temporary function to find items with class hover
     const classList = document.getElementsByClassName("hover"),
       selText = classList && classList[0] && classList[0].innerText,
-      {dispatchaddSearchQuery, dispatchCurrentSearch} = this.props;
+      { dispatchaddSearchQuery, dispatchCurrentSearch } = this.props;
     if (selText) {
       // means a hovered suggested item was clicked
       dispatchaddSearchQuery(selText);
@@ -98,22 +99,7 @@ class App extends React.Component {
   };
 
   render = () => {
-    const imageDiv = (
-        <div>
-          <div id="logo-container" className="logo-container">
-            <img src={logo} className="App-logo" alt="logo" />
-            <img src={logo} className="App-logo shadow" alt="logo" />
-          </div>
-          <div>
-            <img
-              src={this.state.typing ? faceLight : face}
-              className="face-avatar"
-              alt="logo"
-            />
-          </div>
-        </div>
-      ),
-      {
+    const {
         finalSearchQuery,
         shouldShowSuggestion,
         selectedSugIndex,
@@ -125,7 +111,7 @@ class App extends React.Component {
       loadingScreen = (
         <div className="background loading-screen">
           <h4 className="welcome-text">Welcome to my website</h4>
-          <img src={moon} className="moon-image"/>
+          <img src={moon} className="moon-image" />
         </div>
       ),
       mainApp = (
@@ -153,8 +139,8 @@ class App extends React.Component {
               searchHistory={searchHistory}
               currentSearch={currentSearch}
             ></SearchResultsContainer>
-            {imageDiv}
           </div>
+          <NamePlateContainer />
         </div>
       );
     return <div>{this.state.loadingDone ? mainApp : loadingScreen}</div>;
@@ -206,4 +192,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App); // export connected component
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App); // export connected component
