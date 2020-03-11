@@ -11,8 +11,7 @@ const HighlightsContainer = () => {
   const containerStyle = {
       height: "100px",
       backgroundColor: "#e2e2e2",
-      overflow: "scroll",
-      width: "100vw"
+      overflow: "scroll"
     },
     scrollNodeStyle = {
       width: "600px",

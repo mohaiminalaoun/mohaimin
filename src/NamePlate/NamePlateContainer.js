@@ -3,12 +3,10 @@ import ProfileImg from "./assets/profile.png";
 import NamePlate from "./NamePlate";
 const NamePlateContainer = () => {
   const containerStyle = {
-      width: "100vw",
       backgroundColor: "#eaeaea",
       height: "200px"
     },
     topStyle = {
-      width: "100vw",
       backgroundColor: "#4C5885",
       height: "70px"
     },
