@@ -1,0 +1,11 @@
+.highlight-background:hover {
+  border: 2px solid lightgrey !important;
+  border-top: 2px solid red !important;
+  animation: spin 1s linear;
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
