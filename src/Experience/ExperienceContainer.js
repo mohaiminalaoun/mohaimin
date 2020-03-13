@@ -7,7 +7,7 @@ const ExperienceContainer = () => {
   const containerStyle = {
       paddingLeft: "25px",
       paddingTop: "20px",
-      backgroundColor: "#f5f5f5"
+      backgroundColor: "#e9ebee"
     },
     titleStyle = {
       marginBottom: "20px"

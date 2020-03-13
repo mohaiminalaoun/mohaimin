@@ -15,7 +15,9 @@ const HighlightsContainer = () => {
     },
     scrollNodeStyle = {
       width: "600px",
-      whiteSpace: "nowrap"
+      maxWidth: "100vw",
+      whiteSpace: "nowrap",
+      position: "relative"
     };
   const stories = [work, college, email, music, projects, resume].map(n => (
     <Highlight key={n} img={n} />

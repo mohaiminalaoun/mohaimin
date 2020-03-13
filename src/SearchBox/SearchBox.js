@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./SearchBox.css";
+import icon from "./assets/searchicon.svg";
 import { suggestionItemsData } from "../data/suggestionsData";
 
 const SearchBox = props => {
@@ -12,8 +13,16 @@ const SearchBox = props => {
   let placeholderText = "Search";
   // suggestionItemsData[Math.floor(Math.random() * suggestionItemsData.length)]
   //   .text;
+  const imgStyle = {
+    height: "20px",
+    width: "20px",
+    position: "absolute",
+    marginTop: "13px",
+    marginLeft: "4px"
+  };
   return (
     <div className="search-container">
+      <img src={icon} style={imgStyle} />
       <input
         id="searchbox"
         value={props.input}

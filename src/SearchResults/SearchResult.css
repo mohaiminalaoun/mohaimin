@@ -21,9 +21,8 @@
   .result-container {
     width: 80vw;
   }
-  .search-results-container  {
+  .search-results-container {
     height: 75vh !important;
-    overflow: scroll;
   }
   .curtain {
     position: relative !important;
@@ -51,7 +50,6 @@
     opacity: 0.9;
   }
 }
-
 
 .curtain-text {
   opacity: 0;
